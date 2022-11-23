@@ -59,23 +59,30 @@ end
 
 arr1 = [1, [2], [3, [4, 5]]]
 
-arr1.dup
+arr2 = arr1.dup
 
 def deep_dup(arr)
-    return [] if arr.length < 1
+    deep_dup_copy =[]
 
-    arr[0] << deep_dup(arr[1..-1])
+    # until deep_dup_copy == arr
+        arr.each do |ele|
+            if !ele.is_a?(Array) 
+                deep_dup_copy << ele
+            else
+                deep_dup_copy << deep_dup(ele)
+            end
+        end
+    # end
+
+    deep_dup_copy
 end
 
+p arr1
+p arr1.object_id
+p arr2
+p arr2.object_id
+
 p deep_dup(arr1)
+p deep_dup(arr1).object_id
 
-# arr = [1, 2, 3]
-# 1 << ?? (deep dup ([2, 3])) => 1, 2, 3
-#     2 << deep dup ([3]) => 2, 3
-#         3
-
-# arr1 = [1, [2], [3, [4, 5]]]
-# 1 << deep dup ([[2], [3, [4, 5]]])
-#     [2] << deep dup ([[3, [4, 5]]])
-#         [3, [4, 5]]
 
