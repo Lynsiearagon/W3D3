@@ -78,9 +78,9 @@ def deep_dup(arr)
 end
 
 p arr1
-p arr1.object_id
+p arr1[1].object_id
 p arr2
-p arr2.object_id
+p arr2[1].object_id
 
 p deep_dup(arr1)
 p deep_dup(arr1).object_id
