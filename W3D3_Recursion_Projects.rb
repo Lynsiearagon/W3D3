@@ -77,12 +77,19 @@ def deep_dup(arr)
     deep_dup_copy
 end
 
-p arr1
-p arr1[1].object_id
-p arr2
-p arr2[1].object_id
+# p arr1
+# p arr1[1].object_id
+# p arr2
+# p arr2[1].object_id
 
-p deep_dup(arr1)
-p deep_dup(arr1).object_id
+# p deep_dup(arr1)
+# p deep_dup(arr1).object_id
 
+
+def fib(n)
+    return [0, 1].take(n) if n <= 2
+
+    prev_fibs = fib(n - 1)
+    
+end
 
