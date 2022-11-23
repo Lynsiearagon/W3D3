@@ -57,3 +57,25 @@ end
 # p rec_1(2, 1) # => 2
 # p rec_1(2, 2) # => 4
 
+arr1 = [1, [2], [3, [4, 5]]]
+
+arr1.dup
+
+def deep_dup(arr)
+    return [] if arr.length < 1
+
+    arr[0] << deep_dup(arr[1..-1])
+end
+
+p deep_dup(arr1)
+
+# arr = [1, 2, 3]
+# 1 << ?? (deep dup ([2, 3])) => 1, 2, 3
+#     2 << deep dup ([3]) => 2, 3
+#         3
+
+# arr1 = [1, [2], [3, [4, 5]]]
+# 1 << deep dup ([[2], [3, [4, 5]]])
+#     [2] << deep dup ([[3, [4, 5]]])
+#         [3, [4, 5]]
+
