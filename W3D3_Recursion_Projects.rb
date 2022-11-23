@@ -90,6 +90,7 @@ def fib(n)
     return [0, 1].take(n) if n <= 2
 
     prev_fibs = fib(n - 1)
+    prev_fibs << prev_fibs[-2] + prev_fibs[-1]
     
 end
 
